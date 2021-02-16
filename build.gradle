@@ -25,8 +25,10 @@ dependencies {
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation "org.projectlombok:lombok"
+    implementation "org.mapstruct:mapstruct:${mapstructVersion}"
 
     annotationProcessor "org.projectlombok:lombok"
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testAnnotationProcessor "org.projectlombok:lombok"
