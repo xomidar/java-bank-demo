@@ -43,4 +43,12 @@ gitProperties {
     failOnNoGitDirectory = false
 }
 
+processResources {
+    filesMatching("application.yml") {
+        filter {
+            it.replace("#spring.profiles.active#", buildProfile)
+        }
+    }
+}
+
 wrapper.gradleVersion = gradleVersion
