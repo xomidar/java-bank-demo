@@ -5,10 +5,15 @@ plugins {
 
 apply plugin: 'io.spring.dependency-management'
 
+if (!hasProperty('buildProfile')) ext.buildProfile = 'dev'
+
+if (file("gradle/profile-${buildProfile}.gradle").exists()) {
+    apply from: "gradle/profile-${buildProfile}.gradle"
+}
+
 sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
 assert System.properties["java.specification.version"] == JavaVersion.VERSION_11 || JavaVersion.VERSION_12 || JavaVersion.VERSION_13 || JavaVersion.VERSION_14
-
 
 repositories {
     mavenCentral()
