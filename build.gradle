@@ -28,6 +28,8 @@ dependencies {
     implementation "org.projectlombok:lombok"
     implementation "org.mapstruct:mapstruct:${mapstructVersion}"
 
+    compileOnly "io.springfox:springfox-boot-starter:${openApiVersion}"
+
     annotationProcessor "org.projectlombok:lombok"
     annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
 
@@ -41,6 +43,14 @@ test {
 
 gitProperties {
     failOnNoGitDirectory = false
+}
+
+springBoot {
+    buildInfo {
+        properties {
+            name = projectName
+        }
+    }
 }
 
 processResources {
